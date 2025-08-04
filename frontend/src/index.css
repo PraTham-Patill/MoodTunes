@@ -1,0 +1,113 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 232 47% 3%;
+    --foreground: 210 40% 98%;
+
+    --card: 232 47% 6%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 232 47% 6%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 232 47% 10%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 232 47% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 232 47% 10%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 232 47% 15%;
+    --input: 232 47% 15%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    background-image: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15) 0%, rgba(59, 130, 246, 0) 70%), 
+                      radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.1) 0%, rgba(236, 72, 153, 0) 70%);
+    background-attachment: fixed;
+  }
+}
+
+@layer utilities {
+  .glassmorphism {
+    @apply bg-black/20 backdrop-blur-lg border border-white/10 shadow-lg;
+  }
+  
+  .music-card {
+    @apply relative overflow-hidden rounded-lg transition-all duration-300 hover:shadow-lg;
+  }
+  
+  .music-card-hover {
+    @apply absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 transition-opacity duration-300 hover:opacity-100;
+  }
+  
+  .btn-primary {
+    @apply bg-blue-600 text-white rounded-full px-6 py-2 font-medium transition-all duration-300 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white rounded-full px-6 py-2 font-medium transition-all duration-300 hover:bg-secondary/80 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-opacity-50;
+  }
+  
+  .mood-card {
+    @apply rounded-lg p-5 flex flex-col items-center justify-center cursor-pointer transition-transform duration-300 hover:scale-105;
+  }
+  
+  .mood-card-active {
+    @apply ring-2 ring-white/50 ring-offset-2 ring-offset-background;
+  }
+  
+  .animate-enter {
+    @apply animate-fade-in animate-slide-up;
+  }
+}
+
+/* Add this to your existing CSS */
+
+/* Custom scrollbar styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) rgba(255, 255, 255, 0.05);
+}
